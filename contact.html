@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — FleetAnswers | Vancouver & Prince George Fleet Solutions</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  /* HERO */
+  .page-hero { background: var(--charcoal); padding: 9rem 3rem 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .page-hero-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(3rem,6vw,6rem); line-height: 0.92; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .page-hero h1 .accent { color: var(--red); }
+  .page-hero p { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.65); margin-bottom: 2rem; }
+  .breadcrumb { font-family: var(--font-heading); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumb a { color: var(--red); text-decoration: none; }
+
+  /* CONTACT DETAILS */
+  .contact-detail { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
+  .cd-icon { width: 42px; height: 42px; flex-shrink: 0; background: rgba(204,0,0,0.12); border: 1px solid rgba(204,0,0,0.25); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+  .cd-icon svg { width: 18px; height: 18px; stroke: var(--red); fill: none; stroke-width: 1.8; }
+  .cd-text strong { font-family: var(--font-heading); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); display: block; margin-bottom: 0.2rem; }
+  .cd-text span { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.5; display: block; }
+  .cd-text a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .cd-text a:hover { color: var(--red); }
+
+  /* OFFICES */
+  .offices-section { background: var(--black); padding: 5rem 3rem; }
+  .offices-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .office-card { background: var(--charcoal); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--red); padding: 2rem; border-radius: 2px; }
+  .office-card h3 { font-family: var(--font-display); font-size: 1.8rem; text-transform: uppercase; color: var(--white); margin-bottom: 0.25rem; }
+  .office-badge { display: inline-block; font-family: var(--font-heading); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(204,0,0,0.12); color: var(--red); border: 1px solid rgba(204,0,0,0.25); padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 1.25rem; }
+  .office-details { list-style: none; }
+  .office-details li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+  .office-details li:last-child { border-bottom: none; }
+  .office-details li svg { width: 14px; height: 14px; stroke: var(--red); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 3px; }
+
+  /* MAIN FORM SECTION */
+  .main-form-section { background: var(--charcoal); padding: 6rem 3rem; border-top: 1px solid rgba(204,0,0,0.2); }
+  .main-form-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
+  .form-intro h2 { font-family: var(--font-display); font-size: clamp(2.2rem,4vw,3.5rem); text-transform: uppercase; color: var(--white); line-height: 1; margin-bottom: 1rem; }
+  .form-intro h2 .accent { color: var(--red); }
+  .form-intro p { font-size: 0.95rem; line-height: 1.75; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
+  .quick-links { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+  .quick-link { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; font-family: var(--font-heading); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); transition: color 0.2s; padding: 0.75rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 2px; }
+  .quick-link:hover { color: var(--white); border-color: rgba(204,0,0,0.3); background: rgba(204,0,0,0.06); }
+  .quick-link svg { width: 16px; height: 16px; stroke: var(--red); fill: none; stroke-width: 2; flex-shrink: 0; }
+
+  /* RESPONSE PROMISE */
+  .promise-bar { background: var(--red); padding: 1.5rem 3rem; }
+  .promise-inner { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .promise-item { display: flex; align-items: center; gap: 0.75rem; }
+  .promise-item svg { width: 20px; height: 20px; stroke: rgba(255,255,255,0.9); fill: none; stroke-width: 2; }
+  .promise-item span { font-family: var(--font-heading); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); }
+
+  @media (max-width: 1024px) {
+    .page-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .offices-inner { grid-template-columns: 1fr; }
+    .main-form-inner { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  @media (max-width: 768px) {
+    .page-hero { padding: 7rem 1.5rem 4rem; }
+    .offices-section, .main-form-section { padding: 4rem 1.5rem; }
+    .promise-bar { padding: 1.5rem; }
+    .promise-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollBar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="FleetAnswers" onerror="this.style.display='none';document.querySelector('.nav-logo-fallback').style.display='block'">
+    <span class="nav-logo-fallback" style="display:none;">FLEET<span style="color:var(--red);">ANSWERS</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="guaranteed-value-program.html">GVP</a></li>
+    <li><a href="fleet.html">Fleet</a></li>
+    <li><a href="industrial.html">Industrial</a></li>
+    <li><a href="testimonials.html">Clients</a></li>
+    <li><a href="contact.html" class="nav-cta active">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileNav()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="guaranteed-value-program.html" onclick="closeMobileNav()">GVP</a>
+  <a href="fleet.html" onclick="closeMobileNav()">Fleet</a>
+  <a href="industrial.html" onclick="closeMobileNav()">Industrial</a>
+  <a href="testimonials.html" onclick="closeMobileNav()">Clients</a>
+  <a href="contact.html" onclick="closeMobileNav()">Get a Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="fade-in">
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Contact</span></div>
+      <h1>Let's Find<br>Your <span class="accent">Answer</span></h1>
+      <p>Whether you're ready to get into a Guaranteed Value Program, need a vehicle this week, or just have questions about our fleet — we're a real team with real availability. No call centres, no hold music.</p>
+
+      <div class="contact-detail">
+        <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.4 2 2 0 0 1 3.54 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l1.6-1.57a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="cd-text"><strong>Phone</strong><span><a href="tel:+16045550190">+1 (604) 555-0190</a> — Vancouver</span><span><a href="tel:+12505550181">+1 (250) 555-0181</a> — Prince George</span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="cd-text"><strong>Email</strong><span><a href="mailto:info@fleetanswers.ca">info@fleetanswers.ca</a> — General</span><span><a href="mailto:pg@fleetanswers.ca">pg@fleetanswers.ca</a> — Prince George / Northern BC</span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="cd-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="cd-text"><strong>Response Time</strong><span>Within 24 business hours — usually same day</span></div>
+      </div>
+    </div>
+
+    <!-- Quick service links -->
+    <div class="fade-in fade-in-delay-1">
+      <p style="font-family:var(--font-heading);font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:1rem;">What Are You Looking For?</p>
+      <div class="quick-links">
+        <a href="guaranteed-value-program.html" class="quick-link">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          Guaranteed Value Program (GVP)
+        </a>
+        <a href="fleet.html" class="quick-link">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Short-Term Rental
+        </a>
+        <a href="fleet.html" class="quick-link">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Long-Term Lease / Lease-to-Own
+        </a>
+        <a href="fleet.html" class="quick-link">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Rent-to-Own
+        </a>
+        <a href="industrial.html" class="quick-link">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Industrial &amp; Project Fleet Solutions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE BAR -->
+<div class="promise-bar">
+  <div class="promise-inner">
+    <div class="promise-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>No Call Centres — Real People</span></div>
+    <div class="promise-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>24-Hour Response Guaranteed</span></div>
+    <div class="promise-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span>Dedicated Account Manager</span></div>
+    <div class="promise-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Vancouver + Prince George Offices</span></div>
+  </div>
+</div>
+
+<!-- OFFICES -->
+<section class="offices-section">
+  <div class="offices-inner">
+    <div class="office-card fade-in">
+      <h3>Vancouver</h3>
+      <span class="office-badge">Headquarters</span>
+      <ul class="office-details">
+        <li><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lower Mainland, British Columbia</li>
+        <li><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.4 2 2 0 0 1 3.54 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l1.6-1.57a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 (604) 555-0190</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@fleetanswers.ca</li>
+        <li><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Serving all of British Columbia</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon – Fri, 8:00 AM – 6:00 PM PST</li>
+      </ul>
+    </div>
+    <div class="office-card fade-in fade-in-delay-1">
+      <h3>Prince George</h3>
+      <span class="office-badge">Northern BC Office</span>
+      <ul class="office-details">
+        <li><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Prince George, British Columbia</li>
+        <li><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.4 2 2 0 0 1 3.54 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l1.6-1.57a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 (250) 555-0181</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>pg@fleetanswers.ca</li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Northern BC, Resource &amp; Industrial Sector Focus</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon – Fri, 8:00 AM – 5:00 PM PST</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN INQUIRY FORM -->
+<section class="main-form-section" id="inquiry">
+  <div class="main-form-inner">
+    <div class="form-intro fade-in">
+      <div class="section-eyebrow" style="justify-content:flex-start; margin-bottom:1rem;">Inquiry Form</div>
+      <h2>Tell Us What<br>You <span class="accent">Need</span></h2>
+      <p>Fill out the form and the right person on our team will reach out within 24 hours. Whether it's a single truck or a 20-vehicle fleet program — every inquiry gets the same attention.</p>
+      <p>Prefer to talk first? Call us directly at <strong style="color:var(--white);">+1 (604) 555-0190</strong>.</p>
+      <div style="margin-top:2rem; padding:1.25rem; background:rgba(204,0,0,0.08); border:1px solid rgba(204,0,0,0.2); border-left:3px solid var(--red); border-radius:2px;">
+        <p style="font-size:0.88rem; color:rgba(255,255,255,0.65); margin:0; line-height:1.6;"><strong style="color:var(--white); font-family:var(--font-heading); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;">No Pressure.</strong><br>We don't do pushy follow-ups. One conversation, honest answers, and a quote that makes sense for your business.</p>
+      </div>
+    </div>
+
+    <div class="fade-in fade-in-delay-1">
+      <div id="formSuccess" class="form-success">
+        <h3>Message Received!</h3>
+        <p>We'll be in touch within one business day. Thanks for reaching out to FleetAnswers — we're looking forward to connecting.</p>
+      </div>
+      <!-- 
+        ══════════════════════════════════════════════════════════
+        GOOGLE FORM INTEGRATION INSTRUCTIONS
+        ══════════════════════════════════════════════════════════
+        1. Open your Google Form in edit mode
+        2. Click the 3-dot menu (⋮) → "Get pre-filled link"
+        3. Fill in one sample answer per field, then click "Get Link"
+        4. Copy the URL — it will look like:
+           https://docs.google.com/forms/d/e/XXXX/viewform?entry.123=...
+        5. Replace YOUR_FORM_ID_HERE below with the ID from that URL
+        6. Replace each entry.XXXXXX with the actual entry IDs from your form
+           (visible in the pre-filled URL you generated above)
+        ══════════════════════════════════════════════════════════
+      -->
+      <form id="contactForm" class="custom-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" name="entry.FIRSTNAME" placeholder="John" required></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" name="entry.LASTNAME" placeholder="Smith" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Company Name *</label><input type="text" name="entry.COMPANY" placeholder="Your Company Ltd." required></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" name="entry.PHONE" placeholder="+1 (604) 555-0000" required></div>
+        </div>
+        <div class="form-group"><label>Email Address *</label><input type="email" name="entry.EMAIL" placeholder="you@yourcompany.com" required></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>I'm Interested In</label>
+            <select name="entry.SERVICE">
+              <option value="" disabled selected>Select a service</option>
+              <option>Guaranteed Value Program (GVP)</option>
+              <option>Short-Term Rental</option>
+              <option>Long-Term Lease</option>
+              <option>Rent-to-Own</option>
+              <option>Lease-to-Own</option>
+              <option>Industrial Fleet Solution</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Number of Vehicles</label>
+            <select name="entry.NUMVEHICLES">
+              <option value="" disabled selected>How many?</option>
+              <option>1–2 vehicles</option>
+              <option>3–5 vehicles</option>
+              <option>6–10 vehicles</option>
+              <option>11–20 vehicles</option>
+              <option>20+ vehicles</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Brand</label>
+            <select name="entry.BRAND">
+              <option value="" disabled selected>Brand preference</option>
+              <option>GMC (preferred)</option>
+              <option>Chevrolet</option>
+              <option>Cadillac</option>
+              <option>Ford</option>
+              <option>No Preference</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Vehicle Type</label>
+            <select name="entry.VEHICLETYPE">
+              <option value="" disabled selected>Select type</option>
+              <option>Pickup Truck (1/2 Ton)</option>
+              <option>Heavy-Duty Truck (2500/3500)</option>
+              <option>SUV / Crew Transport</option>
+              <option>Luxury / Executive</option>
+              <option>Work Van</option>
+              <option>Industrial Configuration</option>
+              <option>Mixed Fleet</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tell Us About Your Operation</label>
+          <textarea name="entry.MESSAGE" placeholder="Describe your business, how you use your vehicles, approximate monthly mileage per vehicle, any specific requirements (towing, crew transport, industrial configuration, off-road access, etc.), and your timeline." style="min-height:130px;"></textarea>
+        </div>
+        <div class="form-submit-row">
+          <span class="form-note">We never share your information. No spam — ever.</span>
+          <button type="submit" class="btn-primary">
+            Send My Inquiry
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="FleetAnswers" onerror="this.style.display='none'">
+      <p>Boutique fleet solutions for BC businesses. GVP, rentals, leasing, and industrial fleet — backed by 15 years and a team that answers the phone.</p>
+      <p style="font-family:var(--font-heading);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);">Answers for Every Road</p>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul>
+      <li><a href="guaranteed-value-program.html">Guaranteed Value Program</a></li>
+      <li><a href="fleet.html">Rental &amp; Leasing</a></li>
+      <li><a href="fleet.html">Rent-to-Own</a></li>
+      <li><a href="industrial.html">Industrial Fleet</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Fleet</h4><ul>
+      <li><a href="fleet.html">GMC</a></li><li><a href="fleet.html">Chevrolet</a></li>
+      <li><a href="fleet.html">Cadillac</a></li><li><a href="fleet.html">Ford</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="index.html">About Us</a></li>
+      <li><a href="testimonials.html">Client Stories</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 FleetAnswers. Vancouver &amp; Prince George, BC, Canada.</p>
+    <span class="footer-tagline">Answers for Every Road</span>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => { document.getElementById('scrollBar').style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%'; });
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+
+    // ══════════════════════════════════════════════════════════
+    // REPLACE THIS URL WITH YOUR GOOGLE FORM ACTION URL
+    // Format: https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse
+    // Also update all name="entry.XXXXXX" values in the form fields above
+    // with the actual entry IDs from your Google Form
+    // ══════════════════════════════════════════════════════════
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse';
+
+    fetch(GOOGLE_FORM_ACTION, {
+      method: 'POST',
+      body: new FormData(form),
+      mode: 'no-cors'
+    }).catch(() => {});
+
+    form.style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+    window.scrollTo({ top: document.getElementById('inquiry').offsetTop - 100, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

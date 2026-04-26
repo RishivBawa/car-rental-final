@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guaranteed Value Program — FleetAnswers | Vancouver Fleet</title>
+<meta name="description" content="FleetAnswers Guaranteed Value Program — lock in vehicle costs, control your kilometre budget, and refresh your fleet on schedule. Serving BC businesses.">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .page-hero {
+    position: relative; padding: 10rem 3rem 6rem; overflow: hidden;
+    background: var(--black);
+  }
+  .page-hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      linear-gradient(to right, rgba(17,17,17,0.96) 50%, rgba(17,17,17,0.6) 100%),
+      url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1800&q=80') center/cover no-repeat;
+  }
+  .page-hero-content { position: relative; z-index: 1; max-width: 1300px; margin: 0 auto; }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 7rem); line-height: 0.92; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .page-hero h1 .accent { color: var(--red); }
+  .page-hero p { max-width: 580px; font-size: 1.15rem; line-height: 1.75; color: rgba(255,255,255,0.72); margin-bottom: 2.5rem; }
+  .breadcrumb { font-family: var(--font-heading); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumb a { color: var(--red); text-decoration: none; }
+
+  /* WHAT IS GVP */
+  .gvp-intro { background: var(--charcoal); padding: 7rem 3rem; }
+  .gvp-intro-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6rem; align-items: center; }
+  .gvp-intro-text p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.72); margin-bottom: 1.25rem; }
+  .gvp-intro-text strong { color: var(--white); }
+  .gvp-intro img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; filter: brightness(0.88); }
+
+  /* BIG PERKS GRID */
+  .perks-section { background: var(--black); padding: 7rem 3rem; }
+  .perks-grid { max-width: 1300px; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .perk-card { background: var(--charcoal); border: 1px solid rgba(255,255,255,0.07); border-top: 3px solid var(--red); padding: 2rem 2rem 2.5rem; border-radius: 2px; transition: transform 0.2s; }
+  .perk-card:hover { transform: translateY(-4px); }
+  .perk-number { font-family: var(--font-display); font-size: 4rem; color: rgba(204,0,0,0.2); line-height: 1; margin-bottom: 0.5rem; }
+  .perk-card h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; }
+  .perk-card p { font-size: 0.93rem; line-height: 1.72; color: rgba(255,255,255,0.6); }
+
+  /* VS COMPARISON */
+  .compare-section { background: var(--charcoal); padding: 7rem 3rem; }
+  .compare-inner { max-width: 1000px; margin: 0 auto; }
+  .compare-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
+  .compare-table th { font-family: var(--font-heading); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem 1.5rem; text-align: left; }
+  .compare-table th:first-child { color: var(--gray-mid); background: transparent; }
+  .compare-table th:nth-child(2) { background: rgba(204,0,0,0.12); color: var(--red); border-top: 2px solid var(--red); text-align: center; }
+  .compare-table th:nth-child(3), .compare-table th:nth-child(4) { background: rgba(255,255,255,0.03); color: var(--gray-mid); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+  .compare-table td { padding: 0.9rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; color: rgba(255,255,255,0.65); }
+  .compare-table td:nth-child(2) { background: rgba(204,0,0,0.06); text-align: center; font-weight: 600; }
+  .compare-table td:nth-child(3), .compare-table td:nth-child(4) { background: rgba(255,255,255,0.02); text-align: center; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .yes { color: #5cb85c; }
+  .no { color: rgba(255,255,255,0.25); }
+  .partial { color: #f0ad4e; }
+
+  /* HOW IT WORKS */
+  .how-section { background: var(--black); padding: 7rem 3rem; }
+  .steps { max-width: 900px; margin: 3rem auto 0; position: relative; }
+  .steps::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 1px; background: rgba(204,0,0,0.25); }
+  .step { display: flex; gap: 2rem; margin-bottom: 3rem; position: relative; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num { flex-shrink: 0; width: 56px; height: 56px; background: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; color: var(--white); position: relative; z-index: 1; }
+  .step-body {}
+  .step-body h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; margin-top: 0.9rem; }
+  .step-body p { font-size: 0.95rem; line-height: 1.75; color: rgba(255,255,255,0.62); }
+
+  /* INLINE INQUIRY */
+  .inquiry-section { background: var(--charcoal); padding: 6rem 3rem; border-top: 1px solid rgba(204,0,0,0.2); }
+  .inquiry-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+  .inquiry-info h2 { font-family: var(--font-display); font-size: 3rem; text-transform: uppercase; color: var(--white); line-height: 1; margin-bottom: 1rem; }
+  .inquiry-info h2 .accent { color: var(--red); }
+  .inquiry-info p { font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+  .info-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+  .info-icon { width: 36px; height: 36px; flex-shrink: 0; background: rgba(204,0,0,0.15); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+  .info-icon svg { width: 16px; height: 16px; stroke: var(--red); fill: none; stroke-width: 1.8; }
+  .info-text strong { font-family: var(--font-heading); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); display: block; margin-bottom: 0.15rem; }
+  .info-text span { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+  @media (max-width: 1024px) {
+    .gvp-intro-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .inquiry-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .perks-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .page-hero { padding: 7rem 1.5rem 4rem; }
+    .gvp-intro, .perks-section, .compare-section, .how-section { padding: 4rem 1.5rem; }
+    .inquiry-section { padding: 3rem 1.5rem; }
+    .perks-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 0.82rem; }
+    .compare-table th, .compare-table td { padding: 0.7rem 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollBar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="FleetAnswers" onerror="this.style.display='none';document.querySelector('.nav-logo-fallback').style.display='block'">
+    <span class="nav-logo-fallback" style="display:none;">FLEET<span style="color:var(--red);">ANSWERS</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="guaranteed-value-program.html" class="active">GVP</a></li>
+    <li><a href="fleet.html">Fleet</a></li>
+    <li><a href="industrial.html">Industrial</a></li>
+    <li><a href="testimonials.html">Clients</a></li>
+    <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileNav()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="guaranteed-value-program.html" onclick="closeMobileNav()">GVP</a>
+  <a href="fleet.html" onclick="closeMobileNav()">Fleet</a>
+  <a href="industrial.html" onclick="closeMobileNav()">Industrial</a>
+  <a href="testimonials.html" onclick="closeMobileNav()">Clients</a>
+  <a href="contact.html" onclick="closeMobileNav()">Get a Quote</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb fade-in"><a href="index.html">Home</a> <span>›</span> <span>Guaranteed Value Program</span></div>
+    <h1 class="fade-in fade-in-delay-1">Guaranteed<br><span class="accent">Value</span><br>Program</h1>
+    <p class="fade-in fade-in-delay-2">Lock in your costs, control your kilometres, and keep your fleet fresh — all under one predictable monthly commitment built specifically for your operation.</p>
+    <div class="fade-in fade-in-delay-3">
+      <a href="#inquiry" class="btn-primary">
+        Request My Custom GVP Quote
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="gvp-intro">
+  <div class="gvp-intro-inner">
+    <div class="gvp-intro-text fade-in">
+      <div class="section-eyebrow" style="justify-content:flex-start; margin-bottom:1rem;">Smarter Than Buying. Simpler Than Leasing.</div>
+      <h2 class="section-title" style="text-align:left; font-size:clamp(2rem,4vw,3.5rem); margin-bottom:1.5rem;">What is the <span class="accent">GVP?</span></h2>
+      <p>The Guaranteed Value Program is FleetAnswers' flagship offering — a structured, prepaid kilometre agreement that gives your business a <strong>locked-in monthly cost, a new vehicle, and the peace of mind</strong> that comes from knowing exactly what your fleet will cost this year and next.</p>
+      <p>Think of it as locking in today's pricing before the next model year increase — while staying in a current, fully warranted 2026 model. No surprise repair bills. No depreciation headaches. Just a vehicle that works, at a rate you agreed to upfront.</p>
+      <p>Whether you're running a single supervisor truck or managing a 20-vehicle operation, we structure the GVP around your actual usage — your mileage, your industry, your budget. <strong>Every plan is built from scratch, not off a shelf.</strong></p>
+    </div>
+    <div class="fade-in fade-in-delay-1">
+      <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800&q=80" alt="GMC Sierra on highway">
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PERKS -->
+<section class="perks-section">
+  <div style="max-width:1300px; margin:0 auto;" class="section-header fade-in">
+    <div class="section-eyebrow">Why the GVP Works</div>
+    <h2 class="section-title">Built to <span class="accent">Save You</span> Money</h2>
+    <p class="section-sub">Every feature of the Guaranteed Value Program is designed to eliminate cost surprises and give you more control.</p>
+  </div>
+  <div class="perks-grid">
+    <div class="perk-card fade-in">
+      <div class="perk-number">01</div>
+      <h3>Save on Sticker Price</h3>
+      <p>When you lock in your GVP, you're locking in today's vehicle pricing. MSRP climbs every model year — by committing early, you keep the rate you negotiated regardless of what happens to dealer pricing down the road.</p>
+    </div>
+    <div class="perk-card fade-in fade-in-delay-1">
+      <div class="perk-number">02</div>
+      <h3>Less Headache, More Miles</h3>
+      <p>All GVP vehicles are brand new 2026 models. Under full manufacturer warranty. The first two oil changes are on us. You're not inheriting someone else's maintenance backlog — you're starting fresh, every time.</p>
+    </div>
+    <div class="perk-card fade-in fade-in-delay-2">
+      <div class="perk-number">03</div>
+      <h3>Periodic Vehicle Refreshes</h3>
+      <p>At agreed intervals, you have the option to upgrade into a newer model year or adjust your vehicle type. Your fleet never goes stale, and you're never stuck with a unit that no longer fits your operation.</p>
+    </div>
+    <div class="perk-card fade-in">
+      <div class="perk-number">04</div>
+      <h3>One Fixed Monthly Number</h3>
+      <p>Your GVP cost is fixed at signing. Budget for it the same way you budget for rent — it doesn't move. No surprise invoices eating into your margins mid-project.</p>
+    </div>
+    <div class="perk-card fade-in fade-in-delay-1">
+      <div class="perk-number">05</div>
+      <h3>Scalable to Your Operation</h3>
+      <p>Whether it's 1 truck or 20, every GVP is structured around your actual kilometre usage and fleet needs. As your business grows, your plan can grow with it — with a single conversation, not a new contract process.</p>
+    </div>
+    <div class="perk-card fade-in fade-in-delay-2">
+      <div class="perk-number">06</div>
+      <h3>Dedicated Account Manager</h3>
+      <p>You'll have one consistent contact at FleetAnswers who knows your fleet, your team, and your operation. No call centres, no repeating yourself, no "let me transfer you." Just one person who handles it.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section">
+  <div class="compare-inner">
+    <div class="section-header fade-in">
+      <div class="section-eyebrow">Side-by-Side</div>
+      <h2 class="section-title">GVP vs <span class="accent">Your Options</span></h2>
+      <p class="section-sub">See how the Guaranteed Value Program compares to buying outright or traditional financing.</p>
+    </div>
+    <div class="fade-in" style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>🏆 GVP (FleetAnswers)</th>
+            <th>Traditional Lease</th>
+            <th>Outright Purchase</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Fixed monthly cost</td><td class="yes">✓ Guaranteed</td><td class="partial">Mostly</td><td class="no">✗</td></tr>
+          <tr><td>Lock in today's pricing</td><td class="yes">✓ Yes</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><td>Vehicle refresh option</td><td class="yes">✓ Built-in</td><td class="partial">End of term only</td><td class="no">✗</td></tr>
+          <tr><td>New 2026 model</td><td class="yes">✓ Always</td><td class="partial">Depends on dealer</td><td class="partial">One time</td></tr>
+          <tr><td>First oil changes covered</td><td class="yes">✓ First two free</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><td>Capital tied up</td><td class="yes">✗ None</td><td class="yes">✗ None</td><td class="no">✓ Significant</td></tr>
+          <tr><td>Dedicated account manager</td><td class="yes">✓ Always</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><td>Scalable fleet size</td><td class="yes">✓ Anytime</td><td class="partial">New contract needed</td><td class="partial">Buy more</td></tr>
+          <tr><td>Depreciation risk</td><td class="yes">✗ None</td><td class="yes">✗ None</td><td class="no">✓ You carry it</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div style="max-width:1300px; margin:0 auto;" class="section-header fade-in">
+    <div class="section-eyebrow">The Process</div>
+    <h2 class="section-title">How It <span class="accent">Works</span></h2>
+    <p class="section-sub">From first conversation to keys in hand — usually in under a week.</p>
+  </div>
+  <div class="steps">
+    <div class="step fade-in">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Tell Us About Your Operation</h3>
+        <p>Submit an inquiry or give us a call. We'll ask about your industry, fleet size, monthly mileage, and the type of vehicles you need. No pressure, no obligation — just a real conversation.</p>
+      </div>
+    </div>
+    <div class="step fade-in fade-in-delay-1">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>We Build Your Custom Plan</h3>
+        <p>Within 24 hours, your account manager structures a GVP around your actual usage. We run the numbers, pick the right models, and put together a plan that fits your budget and kilometres.</p>
+      </div>
+    </div>
+    <div class="step fade-in fade-in-delay-2">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Review & Lock In Your Rate</h3>
+        <p>We walk you through the plan together — no fine print surprises. Once you're happy, you sign and your rate is locked. That monthly number is now yours for the term, regardless of what happens to market pricing.</p>
+      </div>
+    </div>
+    <div class="step fade-in">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Keys in Hand</h3>
+        <p>Your 2026 vehicle is ready. We deliver it ready to work — oil change included, warranty active, and your account manager is one call away for anything you need.</p>
+      </div>
+    </div>
+    <div class="step fade-in fade-in-delay-1">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h3>Renew, Refresh, or Adjust</h3>
+        <p>At your renewal interval, we proactively reach out to review your plan. Swap vehicles, adjust fleet size, or carry on — the choice is yours, and we make it easy either way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="inquiry-section" id="inquiry">
+  <div class="inquiry-inner">
+    <div class="inquiry-info fade-in">
+      <h2>Start Your<br><span class="accent">GVP</span><br>Inquiry</h2>
+      <p>Fill out the form and your dedicated account manager will reach out within 24 hours with a custom plan overview. No commitment required.</p>
+      <div class="info-item">
+        <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="info-text"><strong>Vancouver HQ</strong><span>Serving All of British Columbia</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="info-text"><strong>Prince George Office</strong><span>Northern BC &amp; Industrial Corridors</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="info-text"><strong>Response Time</strong><span>Within 24 business hours</span></div>
+      </div>
+    </div>
+
+    <div class="fade-in fade-in-delay-1">
+      <div id="formSuccess" class="form-success">
+        <h3>We've Got It!</h3>
+        <p>Thanks for reaching out. Your account manager will contact you within 24 hours with a tailored GVP overview.</p>
+      </div>
+      <!-- REPLACE action URL with your Google Form action link -->
+      <!-- Field name attributes below correspond to your Google Form entry IDs -->
+      <!-- Example: entry.1234567890 — replace with actual entry IDs from your form -->
+      <form id="gvpForm" class="custom-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" name="entry.FIRSTNAME" placeholder="John" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="entry.LASTNAME" placeholder="Smith" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Company Name</label><input type="text" name="entry.COMPANY" placeholder="Acme Construction Ltd." required></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="entry.PHONE" placeholder="+1 (604) 555-0100" required></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" name="entry.EMAIL" placeholder="john@yourcompany.com" required></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Number of Vehicles</label>
+            <select name="entry.NUMVEHICLES">
+              <option value="" disabled selected>How many?</option>
+              <option>1–2 vehicles</option><option>3–5 vehicles</option>
+              <option>6–10 vehicles</option><option>11–20 vehicles</option><option>20+ vehicles</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Brand</label>
+            <select name="entry.BRAND">
+              <option value="" disabled selected>Select brand</option>
+              <option>GMC</option><option>Chevrolet</option><option>Cadillac</option><option>Ford</option><option>No Preference</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Preferred Vehicle Type</label>
+          <select name="entry.VEHICLETYPE">
+            <option value="" disabled selected>Select category</option>
+            <option>Pickup Trucks (1/2 Ton — Silverado, F-150, Sierra)</option>
+            <option>Heavy-Duty Trucks (2500/3500 — Duramax / Power Stroke)</option>
+            <option>SUVs — Crew Transport (Tahoe, Yukon, Expedition)</option>
+            <option>Luxury / Executive (Cadillac Escalade, CT5)</option>
+            <option>Work Vans (Transit, Express)</option>
+            <option>Industrial / Mine-Ready Configuration</option>
+            <option>Mixed Fleet — Multiple Types</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Industry / How You Use Your Fleet</label>
+          <textarea name="entry.DETAILS" placeholder="Tell us about your industry, approximate monthly mileage per vehicle, any special requirements (towing, all-terrain, crew cab, upfitting, etc.), and your approximate timeline."></textarea>
+        </div>
+        <div class="form-submit-row">
+          <span class="form-note">No spam. Your information stays with us.</span>
+          <button type="submit" class="btn-primary">
+            Request My GVP Quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="FleetAnswers" onerror="this.style.display='none'">
+      <p>Boutique fleet solutions for BC businesses. Guaranteed Value Programs, rentals, leasing, and industrial fleet — backed by 15 years and a team that picks up the phone.</p>
+      <p style="font-family:var(--font-heading);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);">Answers for Every Road</p>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul>
+      <li><a href="guaranteed-value-program.html">Guaranteed Value Program</a></li>
+      <li><a href="fleet.html">Short-Term Rental</a></li>
+      <li><a href="fleet.html">Long-Term Leasing</a></li>
+      <li><a href="fleet.html">Rent-to-Own</a></li>
+      <li><a href="industrial.html">Industrial Fleet</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Fleet</h4><ul>
+      <li><a href="fleet.html">GMC</a></li><li><a href="fleet.html">Chevrolet</a></li>
+      <li><a href="fleet.html">Cadillac</a></li><li><a href="fleet.html">Ford</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="index.html">About Us</a></li>
+      <li><a href="testimonials.html">Clients</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 FleetAnswers. Vancouver &amp; Prince George, BC, Canada.</p>
+    <span class="footer-tagline">Answers for Every Road</span>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => { document.getElementById('scrollBar').style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%'; });
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('gvpForm');
+    const formData = new FormData(form);
+
+    // ─── REPLACE THIS URL WITH YOUR GOOGLE FORM ACTION URL ───
+    // To find it: open your Google Form → click the 3-dot menu → "Get pre-filled link"
+    // OR in the form editor, click Send → Embed, and extract the action URL from the iframe src
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse';
+
+    fetch(GOOGLE_FORM_ACTION, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors' // Google Forms requires no-cors
+    }).catch(() => {}); // no-cors always resolves, errors are silent
+
+    form.style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+</script>
+</body>
+</html>
