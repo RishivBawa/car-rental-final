@@ -393,13 +393,47 @@
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
   function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
   function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
-  function handleSubmit(e) {
-    e.preventDefault();
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
-    fetch(GOOGLE_FORM_ACTION, { method: 'POST', body: new FormData(e.target), mode: 'no-cors' }).catch(()=>{});
-    e.target.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  // Build the Google Form URL with filled values
+  const data = new FormData(form);
+  const params = new URLSearchParams();
+  data.forEach((value, key) => params.append(key, value));
+
+  // Submit via hidden iframe — bypasses CORS block
+  let iframe = document.getElementById('hidden_iframe');
+  if (!iframe) {
+    iframe = document.createElement('iframe');
+    iframe.name = 'hidden_iframe';
+    iframe.id = 'hidden_iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
   }
+
+  const hiddenForm = document.createElement('form');
+  hiddenForm.method = 'POST';
+  hiddenForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
+  hiddenForm.target = 'hidden_iframe';
+  hiddenForm.style.display = 'none';
+
+  data.forEach((value, key) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    hiddenForm.appendChild(input);
+  });
+
+  document.body.appendChild(hiddenForm);
+  hiddenForm.submit();
+  hiddenForm.remove();
+
+  // Show success message
+  form.style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+}
 </script>
 </body>
 </html>
