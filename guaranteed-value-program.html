@@ -312,18 +312,18 @@
       <!-- Example: entry.1234567890 — replace with actual entry IDs from your form -->
       <form id="gvpForm" class="custom-form" onsubmit="handleSubmit(event)">
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" name="entry.FIRSTNAME" placeholder="John" required></div>
-          <div class="form-group"><label>Last Name</label><input type="text" name="entry.LASTNAME" placeholder="Smith" required></div>
+          <div class="form-group"><label>First Name</label><input type="text" name="entry.2005620554" placeholder="John" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="entry.139924197" placeholder="Smith" required></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Company Name</label><input type="text" name="entry.COMPANY" placeholder="Acme Construction Ltd." required></div>
-          <div class="form-group"><label>Phone</label><input type="tel" name="entry.PHONE" placeholder="+1 (604) 555-0100" required></div>
+          <div class="form-group"><label>Company Name</label><input type="text" name="entry.1974749475" placeholder="Acme Construction Ltd." required></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="entry.1166974658" placeholder="+1 (604) 555-0100" required></div>
         </div>
-        <div class="form-group"><label>Email Address</label><input type="email" name="entry.EMAIL" placeholder="john@yourcompany.com" required></div>
+        <div class="form-group"><label>Email Address</label><input type="email" name="entry.1045781291" placeholder="john@yourcompany.com" required></div>
         <div class="form-row">
           <div class="form-group">
             <label>Number of Vehicles</label>
-            <select name="entry.NUMVEHICLES">
+            <select name="entry.987347199">
               <option value="" disabled selected>How many?</option>
               <option>1–2 vehicles</option><option>3–5 vehicles</option>
               <option>6–10 vehicles</option><option>11–20 vehicles</option><option>20+ vehicles</option>
@@ -331,7 +331,7 @@
           </div>
           <div class="form-group">
             <label>Preferred Brand</label>
-            <select name="entry.BRAND">
+            <select name="entry.1087793646">
               <option value="" disabled selected>Select brand</option>
               <option>GMC</option><option>Chevrolet</option><option>Cadillac</option><option>No Preference</option>
             </select>
@@ -339,7 +339,7 @@
         </div>
         <div class="form-group">
           <label>Preferred Vehicle Type</label>
-          <select name="entry.VEHICLETYPE">
+          <select name="entry.240415316">
             <option value="" disabled selected>Select category</option>
             <option>Pickup Trucks (1/2 Ton — Silverado, F-150, Sierra)</option>
             <option>Heavy-Duty Trucks (2500/3500 — Duramax / Power Stroke)</option>
@@ -352,7 +352,7 @@
         </div>
         <div class="form-group">
           <label>Industry / How You Use Your Fleet</label>
-          <textarea name="entry.DETAILS" placeholder="Tell us about your industry, approximate monthly mileage per vehicle, any special requirements (towing, all-terrain, crew cab, upfitting, etc.), and your approximate timeline."></textarea>
+          <textarea name="entry.839337160" placeholder="Tell us about your industry, approximate monthly mileage per vehicle, any special requirements (towing, all-terrain, crew cab, upfitting, etc.), and your approximate timeline."></textarea>
         </div>
         <div class="form-submit-row">
           <span class="form-note">No spam. Your information stays with us.</span>
@@ -412,8 +412,8 @@
     // ─── REPLACE THIS URL WITH YOUR GOOGLE FORM ACTION URL ───
     // To find it: open your Google Form → click the 3-dot menu → "Get pre-filled link"
     // OR in the form editor, click Send → Embed, and extract the action URL from the iframe src
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse';
-
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
+    
     fetch(GOOGLE_FORM_ACTION, {
       method: 'POST',
       body: formData,
