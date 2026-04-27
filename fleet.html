@@ -381,18 +381,18 @@
       <div id="formSuccess" class="form-success"><h3>Inquiry Received!</h3><p>We'll reach out within 24 hours about your vehicle request.</p></div>
       <form id="fleetForm" class="custom-form" onsubmit="handleSubmit(event)">
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" name="entry.FIRSTNAME" placeholder="John" required></div>
-          <div class="form-group"><label>Last Name</label><input type="text" name="entry.LASTNAME" placeholder="Smith" required></div>
+          <div class="form-group"><label>First Name</label><input type="text" name="entry.2005620554" placeholder="John" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="entry.139924197" placeholder="Smith" required></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Company</label><input type="text" name="entry.COMPANY" placeholder="Your Company" required></div>
-          <div class="form-group"><label>Phone</label><input type="tel" name="entry.PHONE" placeholder="+1 (604) 000-0000"></div>
+          <div class="form-group"><label>Company</label><input type="text" name="entry.1974749475" placeholder="Your Company" required></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="entry.1166974658" placeholder="+1 (604) 000-0000"></div>
         </div>
-        <div class="form-group"><label>Email</label><input type="email" name="entry.EMAIL" placeholder="you@company.com" required></div>
+        <div class="form-group"><label>Email</label><input type="email" name="entry.1045781291" placeholder="you@company.com" required></div>
         <div class="form-row">
           <div class="form-group">
             <label>Agreement Type</label>
-            <select name="entry.AGREEMENT">
+            <select name="entry.1065046570>
               <option value="" disabled selected>I'm interested in...</option>
               <option>Guaranteed Value Program (GVP)</option><option>Short-Term Rental</option>
               <option>Long-Term Lease</option><option>Rent-to-Own</option><option>Lease-to-Own</option>
@@ -400,7 +400,7 @@
           </div>
           <div class="form-group">
             <label>Vehicle Preference</label>
-            <select name="entry.VEHICLETYPE">
+            <select name="entry.240415316">
               <option value="" disabled selected>Select type</option>
               <option>GMC Pickup (Sierra)</option><option>Chevrolet Pickup (Silverado)</option>
               <option>Cadillac SUV (Escalade)</option><option>GMC/Chevy SUV (Yukon/Tahoe)</option>
@@ -408,7 +408,7 @@
             </select>
           </div>
         </div>
-        <div class="form-group"><label>Additional Notes</label><textarea name="entry.NOTES" placeholder="Any specific requirements, trim levels, towing needs, timeline, etc."></textarea></div>
+        <div class="form-group"><label>Additional Notes</label><textarea name="entry.839337160" placeholder="Any specific requirements, trim levels, towing needs, timeline, etc."></textarea></div>
         <div class="form-submit-row">
           <span class="form-note">No spam. We'll only contact you about your inquiry.</span>
           <button type="submit" class="btn-primary">Submit Inquiry <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -460,7 +460,7 @@
   }
   function handleSubmit(e) {
     e.preventDefault();
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse';
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
     fetch(GOOGLE_FORM_ACTION, { method: 'POST', body: new FormData(e.target), mode: 'no-cors' }).catch(()=>{});
     e.target.style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
