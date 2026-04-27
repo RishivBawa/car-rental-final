@@ -220,18 +220,18 @@ North Vancouver,BC ,Canada</li>
       -->
       <form id="contactForm" class="custom-form" onsubmit="handleSubmit(event)">
         <div class="form-row">
-          <div class="form-group"><label>First Name *</label><input type="text" name="entry.FIRSTNAME" placeholder="John" required></div>
-          <div class="form-group"><label>Last Name *</label><input type="text" name="entry.LASTNAME" placeholder="Smith" required></div>
+          <div class="form-group"><label>First Name *</label><input type="text" name="entry.2005620554" placeholder="John" required></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" name="entry.139924197" placeholder="Smith" required></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Company Name *</label><input type="text" name="entry.COMPANY" placeholder="Your Company Ltd." required></div>
-          <div class="form-group"><label>Phone Number *</label><input type="tel" name="entry.PHONE" placeholder="+1 (604) 555-0000" required></div>
+          <div class="form-group"><label>Company Name *</label><input type="text" name="entry.1974749475" placeholder="Your Company Ltd." required></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" name="entry.1166974658" placeholder="+1 (604) 555-0000" required></div>
         </div>
-        <div class="form-group"><label>Email Address *</label><input type="email" name="entry.EMAIL" placeholder="you@yourcompany.com" required></div>
+        <div class="form-group"><label>Email Address *</label><input type="email" name="entry.1045781291" placeholder="you@yourcompany.com" required></div>
         <div class="form-row">
           <div class="form-group">
             <label>I'm Interested In</label>
-            <select name="entry.SERVICE">
+            <select name="entry.1065046570">
               <option value="" disabled selected>Select a service</option>
               <option>Guaranteed Value Program (GVP)</option>
               <option>Short-Term Rental</option>
@@ -244,7 +244,7 @@ North Vancouver,BC ,Canada</li>
           </div>
           <div class="form-group">
             <label>Number of Vehicles</label>
-            <select name="entry.NUMVEHICLES">
+            <select name="entry.987347199">
               <option value="" disabled selected>How many?</option>
               <option>1–2 vehicles</option>
               <option>3–5 vehicles</option>
@@ -257,7 +257,7 @@ North Vancouver,BC ,Canada</li>
         <div class="form-row">
           <div class="form-group">
             <label>Preferred Brand</label>
-            <select name="entry.BRAND">
+            <select name="entry.1087793646">
               <option value="" disabled selected>Brand preference</option>
               <option>GMC (preferred)</option>
               <option>Chevrolet</option>
@@ -267,7 +267,7 @@ North Vancouver,BC ,Canada</li>
           </div>
           <div class="form-group">
             <label>Vehicle Type</label>
-            <select name="entry.VEHICLETYPE">
+            <select name="entry.240415316">
               <option value="" disabled selected>Select type</option>
               <option>Pickup Truck (1/2 Ton)</option>
               <option>Heavy-Duty Truck (2500/3500)</option>
@@ -281,7 +281,7 @@ North Vancouver,BC ,Canada</li>
         </div>
         <div class="form-group">
           <label>Tell Us About Your Operation</label>
-          <textarea name="entry.MESSAGE" placeholder="Describe your business, how you use your vehicles, approximate monthly mileage per vehicle, any specific requirements (towing, crew transport, industrial configuration, off-road access, etc.), and your timeline." style="min-height:130px;"></textarea>
+          <textarea name="entry.839337160" placeholder="Describe your business, how you use your vehicles, approximate monthly mileage per vehicle, any specific requirements (towing, crew transport, industrial configuration, off-road access, etc.), and your timeline." style="min-height:130px;"></textarea>
         </div>
         <div class="form-submit-row">
           <span class="form-note">We never share your information. No spam — ever.</span>
@@ -342,8 +342,8 @@ North Vancouver,BC ,Canada</li>
     // Also update all name="entry.XXXXXX" values in the form fields above
     // with the actual entry IDs from your Google Form
     // ══════════════════════════════════════════════════════════
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse';
-
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
+    
     fetch(GOOGLE_FORM_ACTION, {
       method: 'POST',
       body: new FormData(form),
