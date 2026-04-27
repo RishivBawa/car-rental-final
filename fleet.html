@@ -52,6 +52,24 @@
   .tab-btn:hover:not(.active) { color: rgba(255,255,255,0.7); }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
+  .vehicle-slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1.5rem;
+  cursor: grab;
+}
+.vehicle-slider:active { cursor: grabbing; }
+.vehicle-slider::-webkit-scrollbar { height: 4px; }
+.vehicle-slider::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+.vehicle-slider::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+.vehicle-slider .vcard {
+  min-width: 320px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
   .vehicle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
 
   /* VEHICLE CARD */
@@ -506,6 +524,15 @@
     e.target.style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
   }
+  // Drag to scroll slider
+const slider = document.querySelector('.vehicle-slider');
+if (slider) {
+  let isDown = false, startX, scrollLeft;
+  slider.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+  slider.addEventListener('mouseleave', () => isDown = false);
+  slider.addEventListener('mouseup', () => isDown = false);
+  slider.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); slider.scrollLeft = scrollLeft - (e.pageX - slider.offsetLeft - startX); });
+}
 </script>
 </body>
 </html>
