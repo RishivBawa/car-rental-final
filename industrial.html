@@ -319,18 +319,18 @@
       <div id="formSuccess" class="form-success"><h3>Inquiry Received!</h3><p>Our industrial fleet team will reach out within 24 hours.</p></div>
       <form id="indForm" class="custom-form" onsubmit="handleSubmit(event)">
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" name="entry.FIRSTNAME" placeholder="John" required></div>
-          <div class="form-group"><label>Last Name</label><input type="text" name="entry.LASTNAME" placeholder="Smith" required></div>
+          <div class="form-group"><label>First Name</label><input type="text" name="entry.2005620554" placeholder="John" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="entry.139924197" placeholder="Smith" required></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Company</label><input type="text" name="entry.COMPANY" placeholder="Mining Co. Ltd." required></div>
-          <div class="form-group"><label>Phone</label><input type="tel" name="entry.PHONE" placeholder="+1 (250) 000-0000" required></div>
+          <div class="form-group"><label>Company</label><input type="text" name="entry.1974749475" placeholder="Mining Co. Ltd." required></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="entry.1166974658" placeholder="+1 (250) 000-0000" required></div>
         </div>
-        <div class="form-group"><label>Email</label><input type="email" name="entry.EMAIL" placeholder="you@company.com" required></div>
+        <div class="form-group"><label>Email</label><input type="email" name="entry.1045781291" placeholder="you@company.com" required></div>
         <div class="form-row">
           <div class="form-group">
             <label>Industry</label>
-            <select name="entry.INDUSTRY">
+            <select name="entry.1065046570">
               <option value="" disabled selected>Select sector</option>
               <option>Mining</option><option>Construction</option><option>Forestry</option>
               <option>Oil &amp; Gas / Pipeline</option><option>Agriculture</option>
@@ -339,7 +339,7 @@
           </div>
           <div class="form-group">
             <label>Fleet Size Needed</label>
-            <select name="entry.FLEETSIZE">
+            <select name="entry.987347199">
               <option value="" disabled selected>How many units?</option>
               <option>1–3 units</option><option>4–8 units</option>
               <option>9–15 units</option><option>15+ units</option>
@@ -348,7 +348,7 @@
         </div>
         <div class="form-group">
           <label>Project / Operation Details</label>
-          <textarea name="entry.DETAILS" placeholder="Describe your project: location (e.g. northern BC, Lower Mainland), terrain conditions, vehicle types needed (pickups, vans, crew transport), any special configuration requirements, and your timeline."></textarea>
+          <textarea name="entry.839337160" placeholder="Describe your project: location (e.g. northern BC, Lower Mainland), terrain conditions, vehicle types needed (pickups, vans, crew transport), any special configuration requirements, and your timeline."></textarea>
         </div>
         <div class="form-submit-row">
           <span class="form-note">Your information is kept confidential.</span>
@@ -395,7 +395,7 @@
   function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
   function handleSubmit(e) {
     e.preventDefault();
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse';
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
     fetch(GOOGLE_FORM_ACTION, { method: 'POST', body: new FormData(e.target), mode: 'no-cors' }).catch(()=>{});
     e.target.style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
