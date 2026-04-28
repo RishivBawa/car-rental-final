@@ -393,47 +393,35 @@
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
   function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
   function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-
-  // Build the Google Form URL with filled values
-  const data = new FormData(form);
-  const params = new URLSearchParams();
-  data.forEach((value, key) => params.append(key, value));
-
-  // Submit via hidden iframe — bypasses CORS block
-  let iframe = document.getElementById('hidden_iframe');
-  if (!iframe) {
-    iframe = document.createElement('iframe');
-    iframe.name = 'hidden_iframe';
-    iframe.id = 'hidden_iframe';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+  
+    emailjs.init('7ANZfFs3zT6NzUl-5');
+  
+    const data = new FormData(form);
+  
+    emailjs.send('service_qx52e3h', 'template_hko84eh', {
+      first_name:   data.get('entry.2005620554'),
+      last_name:    data.get('entry.139924197'),
+      company_name: data.get('entry.1974749475'),
+      phone:        data.get('entry.1166974658'),
+      email:        data.get('entry.1045781291'),
+      service:      data.get('entry.1065046570'),
+      num_vehicles: data.get('entry.987347199'),
+      brand:        data.get('entry.1087793646'),
+      vehicle_type: data.get('entry.240415316'),
+      message:      data.get('entry.839337160')
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    })
+    .catch(() => {
+      alert('Something went wrong. Please call us directly.');
+    });
   }
-
-  const hiddenForm = document.createElement('form');
-  hiddenForm.method = 'POST';
-  hiddenForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
-  hiddenForm.target = 'hidden_iframe';
-  hiddenForm.style.display = 'none';
-
-  data.forEach((value, key) => {
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = key;
-    input.value = value;
-    hiddenForm.appendChild(input);
-  });
-
-  document.body.appendChild(hiddenForm);
-  hiddenForm.submit();
-  hiddenForm.remove();
-
-  // Show success message
-  form.style.display = 'none';
-  document.getElementById('formSuccess').classList.add('show');
-}
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>  
 </body>
 </html>
