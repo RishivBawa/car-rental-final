@@ -71,8 +71,8 @@
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="FleetAnswers" onerror="this.style.display='none';document.querySelector('.nav-logo-fallback').style.display='block'">
-    <span class="nav-logo-fallback" style="display:none;">FLEET<span style="color:var(--red);">ANSWERS</span></span>
+    <img src="logo.png" alt="FleetAnswer" onerror="this.style.display='none';document.querySelector('.nav-logo-fallback').style.display='block'">
+    <span class="nav-logo-fallback" style="display:none;">FLEET<span style="color:var(--red);">ANSWER</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -332,28 +332,35 @@ North Vancouver,BC ,Canada</li>
   function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
   function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = document.getElementById('contactForm');
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
 
-    // ══════════════════════════════════════════════════════════
-    // REPLACE THIS URL WITH YOUR GOOGLE FORM ACTION URL
-    // Format: https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse
-    // Also update all name="entry.XXXXXX" values in the form fields above
-    // with the actual entry IDs from your Google Form
-    // ══════════════════════════════════════════════════════════
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
-    
-    fetch(GOOGLE_FORM_ACTION, {
-      method: 'POST',
-      body: new FormData(form),
-      mode: 'no-cors'
-    }).catch(() => {});
+  emailjs.init('7ANZfFs3zT6NzUl-5');
 
+  const data = new FormData(form);
+
+  emailjs.send('service_qx52e3h', 'template_hko84eh', {
+    first_name:   data.get('entry.2005620554'),
+    last_name:    data.get('entry.139924197'),
+    company_name: data.get('entry.1974749475'),
+    phone:        data.get('entry.1166974658'),
+    email:        data.get('entry.1045781291'),
+    service:      data.get('entry.1065046570'),
+    num_vehicles: data.get('entry.987347199'),
+    brand:        data.get('entry.1087793646'),
+    vehicle_type: data.get('entry.240415316'),
+    message:      data.get('entry.839337160')
+  })
+  .then(() => {
     form.style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
-    window.scrollTo({ top: document.getElementById('inquiry').offsetTop - 100, behavior: 'smooth' });
-  }
+  })
+  .catch(() => {
+    alert('Something went wrong. Please call us directly.');
+  });
+}
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
 </html>
