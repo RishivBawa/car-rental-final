@@ -332,34 +332,34 @@ North Vancouver,BC ,Canada</li>
   function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
   function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
 
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-
-  emailjs.init('7ANZfFs3zT6NzUl-5');
-
-  const data = new FormData(form);
-
-  emailjs.send('service_qx52e3h', 'template_hko84eh', {
-    first_name:   data.get('entry.2005620554'),
-    last_name:    data.get('entry.139924197'),
-    company_name: data.get('entry.1974749475'),
-    phone:        data.get('entry.1166974658'),
-    email:        data.get('entry.1045781291'),
-    service:      data.get('entry.1065046570'),
-    num_vehicles: data.get('entry.987347199'),
-    brand:        data.get('entry.1087793646'),
-    vehicle_type: data.get('entry.240415316'),
-    message:      data.get('entry.839337160')
-  })
-  .then(() => {
-    form.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
-  })
-  .catch(() => {
-    alert('Something went wrong. Please call us directly.');
-  });
-}
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+  
+    emailjs.init('cMuNr6uS3hMFZiT4D');
+  
+    const data = new FormData(form);
+  
+    emailjs.send('service_xgml3oc', 'template_a1y2ijd', {
+      first_name:   data.get('entry.2005620554'),
+      last_name:    data.get('entry.139924197'),
+      company_name: data.get('entry.1974749475'),
+      phone:        data.get('entry.1166974658'),
+      email:        data.get('entry.1045781291'),
+      service:      data.get('entry.1065046570'),
+      num_vehicles: data.get('entry.987347199'),
+      brand:        data.get('entry.1087793646'),
+      vehicle_type: data.get('entry.240415316'),
+      message:      data.get('entry.839337160')
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    })
+    .catch(() => {
+      alert('Something went wrong. Please call us directly.');
+    });
+  }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
