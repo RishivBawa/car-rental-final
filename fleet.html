@@ -460,10 +460,31 @@
   }
   function handleSubmit(e) {
     e.preventDefault();
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfjlK1K3KBOsAe2lztHD0Rk4ZYugLPtCX3ATGyiXYwPTKdVxQ/formResponse';
-    fetch(GOOGLE_FORM_ACTION, { method: 'POST', body: new FormData(e.target), mode: 'no-cors' }).catch(()=>{});
-    e.target.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
+    const form = e.target;
+  
+    emailjs.init('7ANZfFs3zT6NzUl-5');
+  
+    const data = new FormData(form);
+  
+    emailjs.send('service_qx52e3h', 'template_hko84eh', {
+      first_name:   data.get('entry.2005620554'),
+      last_name:    data.get('entry.139924197'),
+      company_name: data.get('entry.1974749475'),
+      phone:        data.get('entry.1166974658'),
+      email:        data.get('entry.1045781291'),
+      service:      data.get('entry.1065046570'),
+      num_vehicles: data.get('entry.987347199'),
+      brand:        data.get('entry.1087793646'),
+      vehicle_type: data.get('entry.240415316'),
+      message:      data.get('entry.839337160')
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    })
+    .catch(() => {
+      alert('Something went wrong. Please call us directly.');
+    });
   }
 // Auto-scroll + drag to scroll slider
 const slider = document.querySelector('.vehicle-slider');
@@ -497,5 +518,6 @@ if (slider) {
   slider.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); slider.scrollLeft = scrollLeft - (e.pageX - slider.offsetLeft - startX); });
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>  
 </body>
 </html>
